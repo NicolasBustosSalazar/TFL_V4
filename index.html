@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Modulación PSK</title>
     <link rel="stylesheet" href="style.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
@@ -34,18 +36,18 @@
     <div class="upper">
       <div class="input_text info-card">
         <div>
-          <p>Ingresar los caracteres:</p>
+          <p><i class="fa-solid fa-atom" style="color: #74C0FC;"></i> Ingresar los caracteres:</p><i class="fa-solid fa-terminal" style="color: #FFD43B;"></i>
           <input type="text" id="inputTexto" placeholder="Ej: abc" />
         </div>
         <p id="message">Codigo ASCII:</p>
       </div>
       <div class="dropdown">
-        <button class="dropdown-btn">Modulación</button>
+        <button class="dropdown-btn"><i class="fa-solid fa-circle-chevron-down" style="color: #74C0FC;"></i>Modulación</button>
         <div class="dropdown-content">
-          <button id="btnBinary">Señal</button>
-          <button id="btnPSK">PSK</button>
-          <button id="btn4PSK">4PSK</button>
-          <button id="btn8PSK">8PSK</button>
+          <button id="btnBinary"><i class="fa-solid fa-chart-line"></i>Señal</button>
+          <button id="btnPSK"><i class="fa-solid fa-chart-line"></i>PSK</button>
+          <button id="btn4PSK"><i class="fa-solid fa-chart-line"></i>4PSK</button>
+          <button id="btn8PSK"><i class="fa-solid fa-chart-line"></i>8PSK</button>
         </div>
       </div>
     </div>
