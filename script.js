@@ -37,6 +37,10 @@ document.getElementById("inputTexto").addEventListener("input", function () {
     disableButtons([btnPSK, btn4PSK, btn8PSK]);
     message.textContent =
       "Por favor, ingrese hasta 3 caracteres para ver la modulación PSK.";
+    if (message) {
+      message.style.color = "red"; // Cambia el color del texto a rojo
+      message.style.backgroundColor = "white"; // Cambia el fondo a blanco
+    }
     const psktable = document.getElementById("psk_table");
     const psktable4 = document.getElementById("4psk_table");
     const psktable8 = document.getElementById("8psk_table");
@@ -73,6 +77,7 @@ function createMessageElement() {
   messageElement.style.color = "red";
   messageElement.style.marginTop = "10px";
   document.body.appendChild(messageElement);
+
   return messageElement;
 }
 
@@ -87,6 +92,8 @@ document.getElementById("btnBinary").addEventListener("click", function () {
 
   if (!inputTexto) {
     messageElement.textContent = "Por favor ingresa un caracter.";
+    messageElement.style.color = "red";
+    messageElement.style.backgroundColor = "white";
     return;
   }
 
@@ -96,7 +103,8 @@ document.getElementById("btnBinary").addEventListener("click", function () {
     .join("");
 
   messageElement.textContent = `Codigo ASCII: ${binaryValues}`;
-
+  messageElement.style.color = "white";
+  messageElement.style.backgroundColor = "#3b3c49";
   // Crear datos para graficar
   const binaryArray = binaryValues.split("").map(Number); // Convertir a array de números
 
@@ -182,7 +190,8 @@ document.getElementById("btnPSK").addEventListener("click", function () {
     .join("");
 
   messageElement.textContent = `Codigo ASCII: ${binaryValues}`;
-
+  messageElement.style.color = "white";
+  messageElement.style.backgroundColor = "#3b3c49";
   // Parámetros para la generación de la señal PSK
   const binaryArray = binaryValues.split("").map(Number); // Convertir a array de números
   const samplesPerBit = 100; // Número de muestras por bit
@@ -290,7 +299,6 @@ document.getElementById("btnPSK").addEventListener("click", function () {
     pskChart.destroy();
   }
 
-
   console.log(duration * timeStep, "ms");
 
   const binaryChart = document.getElementById("binaryChartWrapper");
@@ -382,7 +390,6 @@ function plot4PSK(pskWave, xLabels) {
         },
         y: {
           grid: { display: false },
-          
         },
       },
     },
@@ -413,6 +420,8 @@ document.getElementById("btn4PSK").addEventListener("click", function () {
     .join("");
 
   messageElement.textContent = `Codigo ASCII: ${binaryValues}`;
+  messageElement.style.color = "white";
+  messageElement.style.backgroundColor = "#3b3c49";
   initializeCanvas();
   const binaryChart = document.getElementById("binaryChartWrapper");
   binaryChart.classList.add("hidden");
@@ -494,7 +503,7 @@ function plot8PSK(pskWave, xLabels) {
       scales: {
         x: {
           title: { display: true, text: "Triplas de Bits" },
-          ticks: { autoSkip: false, maxRotation: 0,color: "white" },
+          ticks: { autoSkip: false, maxRotation: 0, color: "white" },
           grid: { display: false }, // Oculta líneas del eje X
         },
         y: {
@@ -529,6 +538,8 @@ document.getElementById("btn8PSK").addEventListener("click", function () {
     .join("");
 
   messageElement.textContent = `Codigo ASCII: ${binaryValues}`;
+  messageElement.style.color = "white";
+  messageElement.style.backgroundColor = "#3b3c49";
   initializeCanvas();
 
   const binaryChart = document.getElementById("binaryChartWrapper");

@@ -12,13 +12,17 @@ body {
   color: var(--color-texto);
   font-size: 1.4rem;
   font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 header {
-  padding: 1vw;
+  /* padding: 1vw; */
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: #222;
 }
 header img {
   border-radius: 100%;
@@ -239,9 +243,18 @@ table tr:nth-child(even) {
   background-color: #333; /* Fondo ligeramente gris para filas pares */
 }
 
+
+main{
+  height: 95vh;
+}
+
 footer h3, footer h4 {
   display: flex;
   flex-direction: column;
   margin: 0%;
   padding: 0;
+  background-color: #222;
+}
+footer{
+  margin-top: 400px;
 }
