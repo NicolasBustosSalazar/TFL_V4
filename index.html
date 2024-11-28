@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modulación PSK</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div>
+        <img src="utn_logo.png" alt="UTN LOGO" style="height: 60px" />
+        <h1>UTN-FRT</h1>
+      </div>
+      <div class="link-conteiner">
+        <a href="https://www.frt.utn.edu.ar"><h4 class="links">Sitio Web UTN</h4></a>
+
+
+        <a href="https://es.wikipedia.org/wiki/Modulaci%C3%B3n_por_desplazamiento_de_fase"><h4 class="links">+Información</h4></a>
+        <a id="mail" href="mailto:nicobustos@gmail.com"><h4 class="links">Contacto</h4></a>
+        
+      </div>
+    </header>
+    <main>
+    <h1>Modulación PSK (Phase Shift Keying)</h1>
+    <div class="upper">
+      <div class="input_text info-card">
+        <div>
+          <p>Ingresar los caracteres:</p>
+          <input type="text" id="inputTexto" placeholder="Ej: abc" />
+        </div>
+        <p id="message">Codigo ASCII:</p>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">Modulación</button>
+        <div class="dropdown-content">
+          <button id="btnBinary">Señal</button>
+          <button id="btnPSK">PSK</button>
+          <button id="btn4PSK">4PSK</button>
+          <button id="btn8PSK">8PSK</button>
+        </div>
+      </div>
+    </div>
+    <div class="chart-wrapper hidden" id="PSKChartWrapper">
+      <h3 class="chart-header">Modulación Digital: PSK</h3>
+      <div class="chart-info">
+        <div class="chart-container info-card">
+          <canvas id="PSKChart"></canvas>
+        </div>
+        <div class="info-card data">
+          <h3>Características</h3>
+          <h5>Fundamento</h5>
+
+          <div>
+            <p>
+              Los datos binarios de entrada se procesan bit a bit. Cada bit
+              genera una de las 2 fases posibles.
+            </p>
+            <table class="hidden" id="psk_table">
+              <tr>
+                <th>Bits</th>
+                <th>Fase</th>
+              </tr>
+              <tr>
+                <td>0</td>
+                <td>0°</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>180°</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-wrapper hidden" id="4PSKChartWrapper">
+      <h3 class="chart-header">Modulación Digital: 4PSK</h3>
+      <div class="chart-info">
+        <div class="chart-container info-card">
+          <canvas id="4PSKChart"></canvas>
+        </div>
+        <div class="info-card data">
+          <h3>Características</h3>
+          <h5>Fundamento</h5>
+          <div>
+            <p>
+              Los datos binarios de entrada se combinan en grupos de 2 bits cada
+              vez, llamados dibits. Cada dibits genera una de las 4 fases
+              posibles.
+            </p>
+            <table class="hidden" id="4psk_table">
+              <tr>
+                <th>DiBits</th>
+                <th>Fase</th>
+              </tr>
+              <tr>
+                <td>00</td>
+                <td>0°</td>
+              </tr>
+              <tr>
+                <td>01</td>
+                <td>90°</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>180°</td>
+              </tr>
+              <tr>
+                <td>11</td>
+                <td>270°</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-wrapper hidden" id="8PSKChartWrapper">
+      <h3 class="chart-header">Modulación Digital: 8PSK</h3>
+      <div class="chart-info">
+        <div class="chart-container info-card">
+          <canvas id="8PSKChart"></canvas>
+        </div>
+        <div class="info-card data">
+          <h3>Características</h3>
+          <h5>Fundamento</h5>
+          <div>
+            <p>
+              Los datos binarios de entrada se combinan en grupos de 3 bits cada
+              vez, llamados tibits. Cada tibits genera una de las 8 fases
+              posibles.
+            </p>
+            <table class="hidden" id="8psk_table">
+              <tr>
+                <th>TriBits</th>
+                <th>Fase</th>
+              </tr>
+              <tr>
+                <td>000</td>
+                <td>0°</td>
+              </tr>
+              <tr>
+                <td>001</td>
+                <td>45°</td>
+              </tr>
+              <tr>
+                <td>010</td>
+                <td>90°</td>
+              </tr>
+              <tr>
+                <td>011</td>
+                <td>135°</td>
+              </tr>
+              <tr>
+                <td>100</td>
+                <td>180°</td>
+              </tr>
+              <tr>
+                <td>101</td>
+                <td>225°</td>
+              </tr>
+              <tr>
+                <td>110</td>
+                <td>270°</td>
+              </tr>
+              <tr>
+                <td>111</td>
+                <td>315°</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-wrapper hidden" id="binaryChartWrapper">
+      <h3 class="chart-header">Señal Moduladora</h3>
+      <div class="chart-info">
+        <div class="chart-container info-card">
+          <canvas id="binaryChart"></canvas>
+        </div>
+        <div class="info-card data">
+          <h3>Características</h3>
+          <h5>Fundamento</h5>
+          <div>
+            <p>
+              Al sistema modulador de 𝑃𝑆𝐾 se lo suele comparar con una llave
+              electrónica controlada por la señal moduladora. Consiste en variar
+              la fase de la sinusoide portadora de acuerdo a los datos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </main>
+    <footer>
+      <h3>Trabajo final integrador</h3>
+      <h4>Bustos Nicolás-Comisión 3K1-2024-Tucuman</h4>
+      <h4>Contacto: nicobustos84@gmail.com</h4>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
